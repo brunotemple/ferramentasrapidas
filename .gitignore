@@ -1,0 +1,13 @@
+# Wrangler / Cloudflare local cache
+.wrangler/
+.dev.vars
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node (in case you ever add tooling)
+node_modules/
+npm-debug.log*

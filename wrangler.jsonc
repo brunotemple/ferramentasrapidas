@@ -1,0 +1,32 @@
+{
+  // Cloudflare deployment config for ferramentasrapidas
+  // Docs: https://developers.cloudflare.com/workers/wrangler/configuration/
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ferramentasrapidas",
+  "compatibility_date": "2026-04-27",
+
+  // Static assets — points Cloudflare at the folder that holds index.html, /contador-de-palavras/, etc.
+  // "." means "this directory (the repo root)". Change if you build into /dist.
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  },
+
+  // Observability — collects Worker logs/traces visible in the Cloudflare dashboard.
+  // head_sampling_rate: 1 = 100% of invocations sampled. Lower it (e.g. 0.1) if volume gets expensive.
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true,
+      "persist": true,
+      "head_sampling_rate": 1
+    }
+  }
+}
